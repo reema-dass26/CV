@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll('.section');
     const learnMoreButton = document.getElementById('learn-more');
     const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
     // Smooth scrolling
     document.querySelectorAll('.navbar a').forEach(anchor => {
@@ -36,18 +37,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Form validation and submission
+    // Form submission
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const formData = new FormData(contactForm);
 
-        if (name && email && message) {
-            alert(`Thank you, ${name}! Your message has been sent.`);
-            contactForm.reset();
-        } else {
-            alert('Please fill in all fields.');
-        }
+        fetch(contactForm.getAttribute('action'), {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                formStatus.textContent = "Message sent successfully!";
+                formStatus.classList.add('success');
+                contactForm.reset();
+            } else {
+                formStatus.textContent = "An error occurred. Please try again later.";
+                formStatus.classList.add('error');
+            }
+        })
+        .catch(error => {
+            formStatus.textContent = "An error occurred. Please try again later.";
+            formStatus.classList.add('error');
+        });
     });
 });
