@@ -48,10 +48,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: rgba(203, 138, 228, 0.158);
+    background: rgba(202, 133, 229, 0.158);
     margin-top: 60px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(42, 40, 40, 0.1);
 }
 
 .section.hidden {
