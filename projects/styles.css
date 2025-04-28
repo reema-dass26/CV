@@ -206,3 +206,15 @@ footer {
         grid-template-columns: 1fr; /* 1 column on very small screens */
     }
 }
+.project-thumbnail {
+    width: 200px; /* Or 150px if you want it even smaller */
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-thumbnail:hover {
+    transform: scale(1.05);
+}
