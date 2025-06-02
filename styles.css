@@ -539,3 +539,17 @@ form button {
 .btn-primary:hover {
     background-color: #ff8787;
 }
+
+
+.cert-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.cert-list li {
+    background-color: #f7f7f7;
+    border-left: 4px solid #007BFF;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
